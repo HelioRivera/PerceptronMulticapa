@@ -18,12 +18,9 @@ namespace PerceptronMulticapa.MLP
             for (int cont = 0; cont < totalEntradas; cont++)
             {
                 pesos.Add(azar.NextDouble());
-                Console.Write(" Peso " + cont.ToString() + ": ");
-                Console.Write("{0:F4};", pesos[cont]);
+               
             }
             umbral = azar.NextDouble();
-            Console.Write(" Umbral: ");
-            Console.WriteLine("{0:F4};", umbral);
         }
 
         //Calcula la salida de la neurona dependiendo de las entradas
@@ -36,6 +33,16 @@ namespace PerceptronMulticapa.MLP
             }
             valor += umbral;
             return 1 / (1 + Math.Exp(-valor)); //revisar esta funcion de activacion en la capa de salida
+        }
+
+        public List<double> GetPesos()
+        {
+            return pesos;
+        }
+
+        public double GetUmbral()
+        {
+            return umbral;
         }
     }
 }

@@ -15,7 +15,6 @@ namespace PerceptronMulticapa.MLP
          totalEntradas : corresponde a la cantidad de entradas en la capa actual*/
         public Capa(Random azar, int totalNeuronas, int totalEntradas)
         {
-            Console.WriteLine("una capa :");
             neuronas = new List<Neurona>();
             salidas = new List<double>();
             //Genera las neuronas e inicializa sus salidas
@@ -33,13 +32,18 @@ namespace PerceptronMulticapa.MLP
             {
                 salidas[cont] = neuronas[cont].CalculaSalida(entradas);
 
-                Console.WriteLine("{0:F4};",salidas[cont]);
+               
             }
         }
 
         public List <double> GetSalida()
         {
             return salidas;
+        }
+
+        public List<Neurona> GetNeuronas()
+        {
+            return neuronas;
         }
     }
 }

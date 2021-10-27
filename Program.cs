@@ -1,6 +1,7 @@
 ﻿using PerceptronMulticapa.MLP;
 using System;
 using System.Collections.Generic;
+using PerceptronMulticapa.Utilidades;
 
 namespace PerceptronMulticapa
 {
@@ -8,27 +9,20 @@ namespace PerceptronMulticapa
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
+       
             Random azar = new Random();
+
             Perceptron perceptron = new Perceptron();
 
-            List<double> valoresEntrada= new List<double>();
+            List<double> input = Configurador.InputDePrueba(10, azar);
 
-            List<int> nNeuronasPorCapa = new List<int>
-            {
-                3,
-                7,
-                6,
-                9
-            };
+            int[] nNeuronasPorCapa = {3,4,5,6,7};
+            
+            perceptron.CreaCapas(azar, nNeuronasPorCapa, input.Count);
 
-            for (int i =0; i < nNeuronasPorCapa[0]; ++i)
-            {
-                valoresEntrada.Add(azar.NextDouble());
-            }
-            perceptron.CreaCapas(azar, nNeuronasPorCapa);
-            perceptron.CalculaSalida(valoresEntrada);
+            perceptron.CalculaSalida(input);
+
+            ParametersVisualizer.ShowAllParameters(nNeuronasPorCapa, perceptron);
 
         }
     }
