@@ -13,23 +13,16 @@ namespace PerceptronMulticapa.Utilidades
         {
             Console.WriteLine("____________PARAMETROS PERCEPTRON MULTICAPA_________________ \n");
 
-            Console.WriteLine("tamaño del imput :" + perceptron.GetTamanoEntrada());
+            TamanoImput(perceptron);
 
             Console.WriteLine("_____________________________________________________________");
 
-            Console.WriteLine("cantidad de capas :" + perceptron.GetCantidadCapas());
+            CantidadCapas(perceptron);
 
             Console.WriteLine("_____________________________________________________________");
 
-            Console.WriteLine("cantidad de neuronas por cada capa:");
-
-            int contador = 0;
-
-            foreach (int x in neuronasPorCapa)
-            {
-                Console.WriteLine("capa "+ contador+": " + x + " neuronas.");
-                ++contador;
-            }
+            NeuronasPorCapa(neuronasPorCapa);
+        
 
             Console.WriteLine("_____________________________________________________________");
 
@@ -42,6 +35,30 @@ namespace PerceptronMulticapa.Utilidades
             Console.WriteLine("_____________________________________________________________");
 
             //Console.WriteLine("funcion de activacion por cada capa : ");
+
+        }
+
+        public static void TamanoImput(Perceptron perceptron)
+        {
+            Console.WriteLine("tamaño del imput :" + perceptron.GetTamanoEntrada());
+        }
+
+        public static void CantidadCapas(Perceptron perceptron)
+        {
+            Console.WriteLine("cantidad de capas :" + perceptron.GetCantidadCapas());
+        }
+
+        public static void NeuronasPorCapa(int[] neuronasPorCapa)
+        {
+            Console.WriteLine("cantidad de neuronas por cada capa:");
+
+            int contador = 0;
+
+            foreach (int x in neuronasPorCapa)
+            {
+                Console.WriteLine("capa " + contador + ": " + x + " neuronas.");
+                ++contador;
+            }
 
         }
 

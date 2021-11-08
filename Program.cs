@@ -12,17 +12,21 @@ namespace PerceptronMulticapa
        
             Random azar = new Random();
 
+            List<double> input = Configurador.InputDePrueba(400, azar);
+
+            int[] nNeuronasPorCapa = {120,84,10};
+
             Perceptron perceptron = new Perceptron();
 
-            List<double> input = Configurador.InputDePrueba(10, azar);
-
-            int[] nNeuronasPorCapa = {3,4,5,6,7};
-            
             perceptron.CreaCapas(azar, nNeuronasPorCapa, input.Count);
 
-            perceptron.CalculaSalida(input);
+            perceptron.CalculaSalida(input, nNeuronasPorCapa.Length);
 
-            ParametersVisualizer.ShowAllParameters(nNeuronasPorCapa, perceptron);
+            //note to helio developer : this method should only have one parameter ; the perceptron
+            ParametersVisualizer.TamanoImput(perceptron);
+            ParametersVisualizer.CantidadCapas(perceptron);
+            ParametersVisualizer.NeuronasPorCapa(nNeuronasPorCapa);
+
 
         }
     }

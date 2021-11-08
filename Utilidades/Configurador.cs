@@ -14,7 +14,7 @@ namespace PerceptronMulticapa.Utilidades
            
             List<double> valoresEntrada = new List<double>();
 
-            for (int i = 0; i < tamanoInput; ++i)
+            for (int i = 0; i < tamanoInput; i++)
             {
                 valoresEntrada.Add(random.NextDouble());
             }

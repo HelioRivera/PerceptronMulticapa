@@ -10,7 +10,6 @@ namespace PerceptronMulticapa.MLP
     {
         private List<double> pesos; //Los pesos para cada entrada
         double umbral; //El peso del umbral
-                       //Inicializa los pesos y umbral con un valor al azar
 
         public Neurona(Random azar, int totalEntradas)
         {
@@ -23,8 +22,8 @@ namespace PerceptronMulticapa.MLP
             umbral = azar.NextDouble();
         }
 
-        //Calcula la salida de la neurona dependiendo de las entradas
-        public double CalculaSalida(List<double> entradas)
+      
+        public double CalculaPreActivacion(List<double> entradas)
         {
             double valor = 0;
             for (int cont = 0; cont < pesos.Count; cont++)
@@ -32,7 +31,9 @@ namespace PerceptronMulticapa.MLP
                 valor += entradas[cont] * pesos[cont];
             }
             valor += umbral;
-            return 1 / (1 + Math.Exp(-valor)); //revisar esta funcion de activacion en la capa de salida
+
+            return valor;
+           
         }
 
         public List<double> GetPesos()
@@ -44,5 +45,16 @@ namespace PerceptronMulticapa.MLP
         {
             return umbral;
         }
+
+       /*private double Tanh(double valor)
+        {
+            return Math.Tanh(valor);
+        }
+
+        private double Sigmoide(double valor)
+        {
+            return 1 / (1 + Math.Exp(-valor));
+        }*/
+
     }
 }
